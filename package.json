@@ -1,0 +1,57 @@
+{
+  "name": "appstore_front",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Yossi Spektor",
+  "license": "MIT",
+  "dependencies": {
+    "@material-ui/core": "^3.5.1",
+    "@material-ui/icons": "^3.0.1",
+    "@material-ui/styles": "^3.0.0-alpha.0",
+    "bootstrap": "^4.1.2",
+    "classnames": "^2.2.6",
+    "d3": "^5.7.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.11",
+    "node-fetch": "^2.2.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.1",
+    "react-device-detect": "^1.6.2",
+    "react-dom": "^16.6.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
+  },
+  "config": {
+    "googleToken": "YOUR_GOOGLE_CLIENT_ID"
+  },
+  "scripts": {
+    "start": "REACT_APP_ENV=production REACT_APP_REDUX_DEV_TOOLS=false PORT=3005 REACT_APP_DEBUG=false REACT_APP_CLIENT_ID=$npm_package_config_googleToken react-scripts start",
+    "build": "REACT_APP_ENV=production REACT_APP_REDUX_DEV_TOOLS=false REACT_APP_PROD_URL=app-finder-server.herokuapp.com REACT_APP_DEBUG=false REACT_APP_CLIENT_ID=$npm_package_config_googleToken react-scripts build && chmod +rw build/ && cp netlifyFiles/_redirects build/",
+    "test": "REACT_APP_ENV=development REACT_APP_REDUX_DEV_TOOLS=true PORT=3005 REACT_APP_DEBUG=true REACT_APP_CLIENT_ID=$npm_package_config_googleToken react-scripts start",
+    "eject": "react-scripts eject",
+    "build_docker": "REACT_APP_ENV=development REACT_APP_REDUX_DEV_TOOLS=false REACT_APP_DEBUG=false REACT_APP_CLIENT_ID=$npm_package_config_googleToken react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "babel-cli": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "eslint": "5.6.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-react": "^7.11.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

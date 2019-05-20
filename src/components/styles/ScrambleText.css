@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,600');
+
+.container {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+}
+
+.siteName {
+    font-family: 'Dosis', monospace;
+    font-weight: 100;
+    font-size: 55px;
+    color: #000;
+}
+
+.dud {
+    color: #757575;
+}

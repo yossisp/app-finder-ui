@@ -1,0 +1,19 @@
+# build environment
+FROM node:8-alpine as builder
+
+ENV appDir /appfinder-ui
+WORKDIR ${appDir}
+ENV PATH ${appDir}/node_modules/.bin:$PATH
+COPY package.json ${appDir}/package.json
+RUN npm install
+# RUN npm install react-scripts@1.1.1 -g
+COPY . ${appDir}
+RUN npm run build_docker --loglevel verbose
+
+# production environment
+FROM nginx:1.13.9-alpine
+RUN rm -rf /etc/nginx/conf.d
+COPY conf /etc/nginx
+COPY --from=builder /appfinder-ui/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

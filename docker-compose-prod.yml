@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  appstore-front:
+    container_name: appstore-front-production
+    build:
+      context: .
+      dockerfile: Dockerfile-prod
+    ports:
+      - '80:80'
+    networks:
+      - appstore-net
+
+networks:
+  appstore-net:
+    driver: bridge
